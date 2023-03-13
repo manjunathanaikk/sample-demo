@@ -1,0 +1,39 @@
+<app-add-user (userAdded)="onUserAdd($event)"></app-add-user>
+<div class="mt-3">
+  <h3>Users List</h3>
+  <button class="btn btn-primary" (click)="onChangeName()">Change Name</button
+  >&nbsp;
+  <button class="btn btn-danger" (click)="onDeleteComponent()">
+    Delete Component
+  </button>
+  <app-user *ngFor="let user of userList" [userName]="user" [name]="name">
+    <p #userParagraph>User name is {{ user }}</p>
+  </app-user>
+</div>
+
+<div appHighlightText>
+  Please add the background color as red
+  <!-- <appHighlightText>Please add the background color as red</appHighlightText> -->
+</div>
+<br />
+<div [appRendererHighlight]="'blue'" highlightColor="orange">
+  <!-- [defaultColor]="'blue'" -->
+  Please add the background color as green
+  <!-- <appHighlightText>Please add the background color as red</appHighlightText> -->
+</div>
+<button class="btn btn-warning" (click)="isAvailable = !isAvailable">
+  Toggle Condtion
+</button>
+<div *ngIf="isAvailable">show the div when isavaliable is true</div>
+<ng-template [ngIf]="isAvailable">
+  <div>show the div when isavaliable is true</div>
+</ng-template>
+<div *appAlternetIf="isAvailable">
+  This condtion enables with custom drirectives
+</div>
+
+<div [ngSwitch]="value">
+  <div *ngSwitchCase="10">value is 10</div>
+  <div *ngSwitchCase="15">vaue is 15</div>
+  <div *ngSwitchDefault>value is default</div>
+</div>
